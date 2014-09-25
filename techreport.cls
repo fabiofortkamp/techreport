@@ -18,7 +18,7 @@
 \RequirePackage{graphicx}
 
 % abntex citation
-\RequirePackage[alf]{abntex2cite}	% Citações padrão ABNT
+\RequirePackage[alf,abnt-etal-list=0]{abntex2cite}	% Citações padrão ABNT
 
 % change figure list in Brazilian
 \addto\captionsbrazil{
