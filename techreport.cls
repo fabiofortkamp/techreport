@@ -10,11 +10,9 @@
 % font setup: use palatino for text and Euler for math
 \RequirePackage{mathpazo}
 \RequirePackage{eulervm}
-\RequirePackage{classico}
 
 % Some fundamental packages, as suggested by abntex2 templates
 \RequirePackage{cmap} % map special characters in PDF
-\RequirePackage{indentfirst}
 \RequirePackage{nomencl}
 \RequirePackage{color}
 \RequirePackage{graphicx}
@@ -26,3 +24,18 @@
 \addto\captionsbrazil{
     \renewcommand{\listfigurename}{Lista de figuras}
 }
+
+% configure margins
+\setlrmarginsandblock{3.0cm}{2.0cm}{*}
+\setulmarginsandblock{3.0cm}{2.0cm}{*}
+\checkandfixthelayout
+
+% There seems to be no standard on paragraph indentation; I'm using a value that seems reasonable
+\setlength{\parindent}{0.75cm}
+
+% Eliminate spacing between parapgrahs
+\setlength{\parskip}{0.0cm}
+
+% espaçamento simples
+\OnehalfSpacing
+
