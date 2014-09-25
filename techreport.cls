@@ -37,3 +37,16 @@
 
 % espaçamento simples
 \OnehalfSpacing
+
+% ---
+% Modify the \textual command, to print page number at the top right corner
+\renewcommand{\textual}{%
+  \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+    \pagestyle{headings}%
+  }{%else  
+    \pagestyle{abntheadings}%
+    \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
+  }  
+  \nouppercaseheads%
+  \bookmarksetup{startatroot}% 
+}
