@@ -13,7 +13,6 @@
 
 % Some fundamental packages, as suggested by abntex2 templates
 \RequirePackage{cmap} % map special characters in PDF
-\RequirePackage{nomencl}
 \RequirePackage{color}
 \RequirePackage{graphicx}
 
@@ -38,4 +37,3 @@
 
 % espaçamento simples
 \OnehalfSpacing
-
