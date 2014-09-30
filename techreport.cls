@@ -8,7 +8,18 @@
 \RequirePackage[T1]{fontenc}
 
 % font setup: use palatino 
+% there seems to be a bug with using Palatino and amsmath, because they both define a command \iint
+% I'm using a solution from the TeX UK FAQ (http://www.tex.ac.uk/cgi-bin/texfaq2html?label=alreadydef)
+% with this, I'm alreding loading amsmath, which is useful sometimes
+
+\RequirePackage{savesym}
+\RequirePackage{amsmath}
+\savesymbol{iint}
+
 \RequirePackage{pxfonts}
+
+%the pxfonts version can be invoked via \PXFiint
+\restoresymbol{PXF}{iint}
 
 % Some fundamental packages, as suggested by abntex2 templates
 \RequirePackage{cmap} % map special characters in PDF
