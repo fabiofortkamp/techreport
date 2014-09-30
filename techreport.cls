@@ -7,9 +7,8 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 
-% font setup: use palatino for text and Euler for math
-\RequirePackage{mathpazo}
-\RequirePackage{eulervm}
+% font setup: use palatino 
+\RequirePackage{pxfonts}
 
 % Some fundamental packages, as suggested by abntex2 templates
 \RequirePackage{cmap} % map special characters in PDF
