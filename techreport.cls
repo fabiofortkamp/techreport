@@ -60,3 +60,6 @@
   \nouppercaseheads%
   \bookmarksetup{startatroot}% 
 }
+
+\renewcommand{\equationautorefname}{Equação}
+\renewcommand{\figureautorefname}{Figura}
