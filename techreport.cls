@@ -63,3 +63,4 @@
 
 \renewcommand{\equationautorefname}{Equação}
 \renewcommand{\figureautorefname}{Figura}
+\renewcommand{\tableautorefname}{Tabela}
