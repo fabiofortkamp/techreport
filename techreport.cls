@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{techreport}[2014/09/24]
+\ProvidesClass{techreport}[2014/12/12 v0.3]
 
 \LoadClass[a4paper,oneside,12pt,article,brazil]{abntex2}
 
