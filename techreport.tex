@@ -26,7 +26,7 @@
 % ---
 % FILL THIS INFORMATION
 
-\titulo{A classe \texttt{techreport}}
+\titulo{A classe \textsf{techreport}}
 \autor{Fábio Pinto Fortkamp}
 \local{Florianópolis}
 \data{Janeiro de 2015}
@@ -79,7 +79,7 @@
 
 % ---
 % ADITIONAL COMMANDS
-\newcommand{\trep}{\texttt{techreport}}
+\newcommand{\trep}{\textsf{techreport}}
 
 
 %\pagestyle{plain}
@@ -100,13 +100,13 @@
 \section{Introdução}
 \label{sec:introducao}
 
-Este document descreve a classe \trep, uma classe baseada na classe \texttt{abntex2} \cite{bib:abntex2classe} , já com algumas configurações padronizadas. Na linguagem de hoje, esta é uma classe ``opinionada''.
+Este document descreve a classe \trep, uma classe baseada na classe \textsf{abntex2} \cite{bib:abntex2classe} , já com algumas configurações padronizadas. Na linguagem de hoje, esta é uma classe ``opinionada''.
 
 As principais características de \trep{} são:
 
 \begin{enumerate}
-\item Carregar a classe \texttt{abntex2} com algumas opções como default, e carrgar o pacote \texttt{abntex2cite} \cite{abntex2cite}.
-\item Carregar os principais pacotes usados na maioria dos documentos técnicos em português, como \texttt{cmap}, \texttt{graphicx}, \texttt{inputenc}, \texttt{fontenc}
+\item Carregar a classe \textsf{abntex2} com algumas opções como default, e carrgar o pacote \textsf{abntex2cite} \cite{abntex2cite}.
+\item Carregar os principais pacotes usados na maioria dos documentos técnicos em português, como \textsf{cmap}, \textsf{graphicx}, \textsf{inputenc}, \textsf{fontenc}
 \item Configurar uma geometria de página, com margens e espaçamento entre linhas
 \item Configurar novas fontes
 \end{enumerate}
@@ -122,7 +122,7 @@ Possíveis usos pensados para a classe são:
 \item Relatório técnico (de onde deriva o nome)
 \end{itemize}
 
-Para ser claro: \trep{} é apenas uma personalização de \texttt{abntex2}; todo o trabalho pesado é feito por esta classe, ao qual os estudantes e profissionais brasileiros que precisam lidar com normas técnicas agradecem.
+Para ser claro: \trep{} é apenas uma personalização de \textsf{abntex2}; todo o trabalho pesado é feito por esta classe, ao qual os estudantes e profissionais brasileiros que precisam lidar com normas técnicas agradecem.
 
 \section{Configurações}
 \label{sec:configuracoes}
@@ -214,7 +214,7 @@ As principais configurações são referentes aos metadados do document, como o 
 
 Caso o usuário não deseja uma capa, pode comentar o commando \verb=\imprimircapa= e incluir o comando \verb=\maketitle=.
 
-Existem também comandos para configuração do PDF em si; o usuário é instruído a consultar o pacote \texttt{hyperref} para melhor compreensão.
+Existem também comandos para configuração do PDF em si; o usuário é instruído a consultar o pacote \textsf{hyperref} para melhor compreensão.
 
 Por último, é importante observar os comandos \verb=\pretextual=, \verb=\textual= e \verb=\postextual=, que indicam o início do documento e de elementos pré-textuais (como a capa) e pós-textuais, como referências.
 
@@ -238,12 +238,12 @@ Por último, é importante observar os comandos \verb=\pretextual=, \verb=\textu
 \subsection{Citações}
 \label{sec:citacoes}
 
-É utilizado a configuração de citação do tipo (NOME, ANO) do \texttt{abntex2-cite}. Como configuração adicional, trabalhos com muitos autores não são abreviados como ``et al'' na lista de referências.
+É utilizado a configuração de citação do tipo (NOME, ANO) do \textsf{abntex2-cite}. Como configuração adicional, trabalhos com muitos autores não são abreviados como ``et al'' na lista de referências.
 
 \subsection{Fontes}
 \label{sec:fontes}
 
-A fonte principal do texto é a Palatino, com o pacote \texttt{pxfonts}
+A fonte principal do texto é a Palatino, com o pacote \textsf{pxfonts}
 
 Como referência, uma equação em linha fica $a + \sqrt{b^2} = \exp \gamma$, e uma equação em parágrafo fica:
 
@@ -255,9 +255,9 @@ Como referência, uma equação em linha fica $a + \sqrt{b^2} = \exp \gamma$, e 
 \subsection{Pacotes carregados}
 \label{sec:pacotes-carregados}
 
-Além dos considerados essenciais pelo \texttt{abntex2}:
+Além dos considerados essenciais pelo \textsf{abntex2}:
 \begin{itemize}
-\item \texttt{amsmath}
+\item \textsf{amsmath}
 \end{itemize}
 
 
