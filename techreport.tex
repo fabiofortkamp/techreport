@@ -92,18 +92,6 @@
 \imprimircapa
 %\maketitle
 
-\pdfbookmark[0]{\listfigurename}{lof}
-\listoffigures*
-\cleardoublepage
-% ---
-
-
-\pdfbookmark[0]{\contentsname}{toc}
-\tableofcontents*
-\cleardoublepage
-% ---
-
-
 % ---
 % BEGIN DOCUMENT
 \textual
@@ -238,6 +226,7 @@ Por último, é importante observar os comandos \verb=\pretextual=, \verb=\textu
 
 \begin{itemize}
 \item O tamanho padrão é A4
+\item É usada uma configuração de ``artigo'', com as seções sendo as principais divisões do documento
 \item Tamanho de fonte de \SI{2}{pt}
 \item \trep{} configura margens superior e esquerda de \SI{3}{\centi\meter} e inferior e direita de \SI{2}{\centi\meter}, seguindo a norma ABNT NBR 14724:2011 \cite{NBR14724:2011}.
 \item O espaçamento entrelinhas é de \num{1,5}, segundo a mesma norma.
@@ -277,7 +266,7 @@ Além dos considerados essenciais pelo \texttt{abntex2}:
 
 Para escrever o texto em inglês, passe as opções \texttt{[brazil,english]} à classe. Isso tem o efeito de mudar as legendas e referências a figuras, tabelas e equações, como pode ser visto na \autoref{fig:t} (compile este documento com estas opções para ver o resultado). Veja também uma referência à \autoref{eq:1} e à \autoref{sec:pacotes-carregados}.
 
-O título das listas iniciais (como sumário e lista de figuras também é alterado) e das referências ribliográficas também é alterado, e é usado o ``\&'' nas citações com mais de um autores (como em \citeonline{abntex2cite}). 
+O título das referências bibliográficas também é alterado, e é usado o ``\&'' nas citações com mais de um autores (como em \citeonline{abntex2cite}). 
 
 \begin{figure}[!ht]
   \centering
