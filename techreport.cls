@@ -1,7 +1,17 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{techreport}[2014/09/24]
 
-\LoadClass[a4paper,oneside,12pt,article,brazil]{abntex2}
+\RequirePackage{ifthen}
+
+\newboolean{isenglish}
+\DeclareOption{english}{\setboolean{isenglish}{true}}
+
+\DeclareOption*{%
+ \PassOptionsToClass{\CurrentOption}{abntex2}%
+}
+\ProcessOptions\relax
+
+\LoadClass[a4paper,oneside,12pt,article]{abntex2}
 
 % standard packages for inputing accented characters
 \RequirePackage[utf8]{inputenc}
@@ -27,7 +37,9 @@
 \RequirePackage{graphicx}
 
 % abntex citation
-\RequirePackage[alf,abnt-etal-list=0]{abntex2cite}	% Citações padrão ABNT
+\ifthenelse{\boolean{isenglish}}{%
+\RequirePackage[alf,abnt-etal-list=0,abnt-and-type=&]{abntex2cite}}{%
+\RequirePackage[alf,abnt-etal-list=0]{abntex2cite}}	% Citações padrão ABNT
 
 % change figure list in Brazilian
 \addto\captionsbrazil{
@@ -61,6 +73,7 @@
   \bookmarksetup{startatroot}% 
 }
 
-\renewcommand{\equationautorefname}{Equação}
-\renewcommand{\figureautorefname}{Figura}
-\renewcommand{\tableautorefname}{Tabela}
+\ifthenelse{\boolean{isenglish}}{}{%
+\renewcommand{\equationautorefname}{Equação}%
+\renewcommand{\figureautorefname}{Figura}%
+\renewcommand{\tableautorefname}{Tabela}}

@@ -92,6 +92,18 @@
 \imprimircapa
 %\maketitle
 
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
 % ---
 % BEGIN DOCUMENT
 \textual
@@ -102,7 +114,7 @@
 
 Este document descreve a classe \trep, uma classe baseada na classe \texttt{abntex2} \cite{bib:abntex2classe} , já com algumas configurações padronizadas. Na linguagem de hoje, esta é uma classe ``opinionada''.
 
-As principais características de \trep são:
+As principais características de \trep{} são:
 
 \begin{enumerate}
 \item Carregar a classe \texttt{abntex2} com algumas opções como default, e carrgar o pacote \texttt{abntex2cite} \cite{abntex2cite}.
@@ -127,7 +139,7 @@ Para ser claro: \trep{} é apenas uma personalização de \texttt{abntex2}; todo
 \section{Configurações}
 \label{sec:configuracoes}
 
-\textbf{Versão atual de techreport: v0.2.3}.
+\textbf{Versão atual de techreport: v0.4}.
 
 Nesta versão, existem algumas pequenas configurações manuais que precisam ser feitos pelo usuário. Um template mínimo para a classe poderia ser:
 
@@ -259,6 +271,20 @@ Além dos considerados essenciais pelo \texttt{abntex2}:
 \item \texttt{amsmath}
 \end{itemize}
 
+
+\subsection{English}
+\label{sec:english}
+
+Para escrever o texto em inglês, passe as opções \texttt{[brazil,english]} à classe. Isso tem o efeito de mudar as legendas e referências a figuras, tabelas e equações, como pode ser visto na \autoref{fig:t} (compile este documento com estas opções para ver o resultado). Veja também uma referência à \autoref{eq:1} e à \autoref{sec:pacotes-carregados}.
+
+O título das listas iniciais (como sumário e lista de figuras também é alterado) e das referências ribliográficas também é alterado, e é usado o ``\&'' nas citações com mais de um autores (como em \citeonline{abntex2cite}). 
+
+\begin{figure}[!ht]
+  \centering
+  
+  \caption{Test}
+  \label{fig:t}
+\end{figure}
 
 \postextual
 \bibliography{techreport-ref}
