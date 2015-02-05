@@ -1,0 +1,307 @@
+\documentclass[article]{techreport}
+
+% ---
+% INITIAL CONFIGURATION
+% These packages must later go into a single package
+\usepackage[output-decimal-marker={,},per-mode=symbol]{siunitx}
+\DeclareSIUnit{\mol}{mol}
+\DeclareSIUnit{\molecule}{molécula}
+\DeclareSIUnit{\molecules}{moléculas}
+\DeclareSIUnit{\poise}{P}
+
+\usepackage{esdiff}
+\newcommand{\diffd}[1]{\ensuremath{\mathrm{d}#1}}
+
+% some common commands that I use in technical reports
+\newcommand{\mrate}[1]{\ensuremath{\dot{m}_{#1}}}
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\newcommand{\average}[1]{\overline{#1}}
+
+\newcommand{\solubility}{\ensuremath{\omega_R}}
+
+\newcommand{\solubilitym}{\ensuremath{\tilde{\omega}_R}}
+
+% ---
+% FILL THIS INFORMATION
+
+\titulo{A classe \textsf{techreport}}
+\autor{Fábio Pinto Fortkamp}
+\local{Florianópolis}
+\data{Janeiro de 2015}
+
+\instituicao{}
+
+% --- 
+% COVER TEMPLATE
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    
+    \center
+    {\ABNTEXchapterfont\Large\imprimirinstituicao}
+    
+    \vspace*{\fill}
+    {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
+    \par
+    \par
+    {\ABNTEXchapterfont\large Versão de artigo}
+    \vspace*{\fill}
+
+    \vspace*{\fill}
+    {\ABNTEXchapterfont\large\imprimirautor}
+    \vspace*{\fill}
+
+    {\ABNTEXchapterfont\large\imprimirlocal}
+    \par
+    {\ABNTEXchapterfont\large\imprimirdata}
+
+    \vspace*{1cm}
+
+  \end{capa}
+}
+
+% ---
+% PDF SETUP
+
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+    	pdfsubject={},
+	pdfcreator={LaTeX with abnTeX2},
+	colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=black,      		% color of file links
+	urlcolor=black,
+	bookmarksdepth=4
+}
+\makeatother
+
+% ---
+% ADITIONAL COMMANDS
+\newcommand{\trep}{\textsf{techreport}}
+
+\begin{document}
+
+\pretextual
+% ---
+% PRINT THE COVER?
+\imprimircapa
+%\maketitle
+
+% this puts the table of contetns in the PDF bookmarks
+%
+% with just the \tableofcontents macro, the bookmark is still produced, but it directs the PDF
+% to *below* the table of contents name
+%
+% the starred version then excludes the bookmark, and we manually add a new one, that will redirect the reader
+% to table of contents title (like "Contents")
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+
+% ---
+% BEGIN DOCUMENT
+\textual
+
+
+\section{Introdução}
+\label{sec:introducao}
+
+Este document descreve a classe \trep, uma classe baseada na classe \textsf{abntex2} \cite{bib:abntex2classe} , já com algumas configurações padronizadas. Na linguagem de hoje, esta é uma classe ``opinionada''.
+
+As principais características de \trep{} são:
+
+\begin{enumerate}
+\item Carregar a classe \textsf{abntex2} com algumas opções como default, e carrgar o pacote \textsf{abntex2cite} \cite{abntex2cite}.
+\item Carregar os principais pacotes usados na maioria dos documentos técnicos em português, como \textsf{cmap}, \textsf{graphicx}, \textsf{inputenc}, \textsf{fontenc}
+\item Configurar uma geometria de página, com margens e espaçamento entre linhas
+\item Configurar novas fontes
+\end{enumerate}
+
+O principal objetivo desta classe é que o usuário seja capaz de configurar um documento técnico da maneira mais rápida possível, seguindo as orientações da ABNT, e tendo de configurar apenas pacotes específicos ao documento sendo criado, deixando os aspectos gerais (como a geometria, citada anteriormente) para a classe. Ao mesmo tempo, o uso de fontes alternativas confere um toque pessoal ao documento, sem perder a seriedade.
+
+Possíveis usos pensados para a classe são:
+
+\begin{itemize}
+\item Trabalhos de disciplinas de ensino superior
+\item Documentação para algum produto/programa/procedimento
+\item Um artigo científico comum
+\item Relatório técnico (de onde deriva o nome)
+\end{itemize}
+
+Para ser claro: \trep{} é apenas uma personalização de \textsf{abntex2}; todo o trabalho pesado é feito por esta classe, ao qual os estudantes e profissionais brasileiros que precisam lidar com normas técnicas agradecem.
+
+\section{Configurações}
+\label{sec:configuracoes}
+
+\textbf{Versão atual de techreport: v0.5}.
+
+Nesta versão, existem algumas pequenas configurações manuais que precisam ser feitos pelo usuário. Um template mínimo para a classe poderia ser:
+
+\begin{verbatim}
+\documentclass{techreport}
+
+% ---
+% FILL THIS INFORMATION
+
+\titulo{}
+\autor{}
+\local{
+\data{}
+
+\instituicao{}
+
+% --- 
+% COVER TEMPLATE
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    {\ABNTEXchapterfont\Large\imprimirinstituicao}
+    
+    \vspace*{\fill}
+    {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo}
+    \vspace*{\fill}
+
+    \vspace*{\fill}
+    {\ABNTEXchapterfont\large\imprimirautor}
+    \vspace*{\fill}
+
+    {\ABNTEXchapterfont\large\imprimirlocal}
+    \par
+    {\ABNTEXchapterfont\large\imprimirdata}
+
+    \vspace*{1cm}
+
+  \end{capa}
+}
+
+% ---
+% PDF SETUP
+
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+    	pdfsubject={},
+	pdfcreator={LaTeX with abnTeX2},
+	colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=black,      		% color of file links
+	urlcolor=black,
+	bookmarksdepth=4
+}
+\makeatother
+
+
+% ---
+% BEGIN DOCUMENT
+
+
+\begin{document}
+
+\pretextual
+% ---
+% PRINT THE COVER?
+\imprimircapa
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+
+\textual
+
+% CONTENTS GO HERE
+
+\postextual
+\bibliography{}
+
+\end{document}
+
+\end{verbatim}
+
+O usuário pode usar algum recurso de templates; alguns editores têm recursos de \emph{snippets}; usuários de OS X podem usar um programa como o TextExpander.
+
+As principais configurações são referentes aos metadados do document, como o título, autor, local etc. Este template inclui uma possível versão para uma capa simples. É importante ressaltar que \trep{} se baseia num modelo de artigo, na verdade, sendo estruturado em seções e não em capítulos. Versões futuras poderão permitir uma versão mais compatível com documentos complexos, incluindo elementos pré-textuais. 
+
+Caso o usuário não deseja uma capa, pode comentar o commando \verb=\imprimircapa= e incluir o comando \verb=\maketitle=.
+
+Existem também comandos para configuração do PDF em si; o usuário é instruído a consultar o pacote \textsf{hyperref} para melhor compreensão.
+
+Por último, é importante observar os comandos \verb=\pretextual=, \verb=\textual= e \verb=\postextual=, que indicam o início do documento e de elementos pré-textuais (como a capa) e pós-textuais, como referências.
+
+\section{Personalizações feitas}
+\label{sec:pers-feit}
+
+\subsection{Geometria}
+\label{sec:geometria}
+
+\begin{itemize}
+\item O tamanho padrão é A4
+\item É usada uma configuração de ``artigo'', com as seções sendo as principais divisões do documento
+\item Tamanho de fonte de \SI{2}{pt}
+\item \trep{} configura margens superior e esquerda de \SI{3}{\centi\meter} e inferior e direita de \SI{2}{\centi\meter}, seguindo a norma ABNT NBR 14724:2011 \cite{NBR14724:2011}.
+\item O espaçamento entrelinhas é de \num{1,5}, segundo a mesma norma.
+\item Não há espaço entre parágrafos.
+\item A tabulação é de \SI{0,75}{\centi\meter}.
+\item O comando \verb=\textual= define um estilo de página com o número de página no canto superior direito, como pede a norma
+\end{itemize}
+
+\subsection{Citações}
+\label{sec:citacoes}
+
+É utilizado a configuração de citação do tipo (NOME, ANO) do \textsf{abntex2-cite}. Como configuração adicional, trabalhos com muitos autores não são abreviados como ``et al'' na lista de referências.
+
+\subsection{Fontes}
+\label{sec:fontes}
+
+A fonte principal do texto é a Palatino, com o pacote \textsf{pxfonts}
+
+Como referência, uma equação em linha fica $a + \sqrt{b^2} = \exp \gamma$, e uma equação em parágrafo fica:
+
+\begin{equation}
+  \label{eq:1}
+  \left( 1 + \frac{r}{R} \right) \sin \theta_i = 2 \beta \nabla \cdot \vec{V} 
+\end{equation}
+
+\subsubsection{Fontes de seções}
+\label{sec:fontes-de-secoes}
+
+Esta subseção é apenas para ver como os títulos de seções são produzidos até o nível de subsubseção.
+
+\subsection{Pacotes carregados}
+\label{sec:pacotes-carregados}
+
+Além dos considerados essenciais pelo \textsf{abntex2}:
+\begin{itemize}
+\item \textsf{amsmath}
+\end{itemize}
+
+
+\subsection{English}
+\label{sec:english}
+
+Para escrever o texto em inglês, passe as opções \texttt{[brazil,english]} à classe. Isso tem o efeito de mudar as legendas e referências a figuras, tabelas e equações, como pode ser visto na \autoref{fig:t} (compile este documento com estas opções para ver o resultado). Veja também uma referência à \autoref{eq:1} e à \autoref{sec:pacotes-carregados}.
+
+O título das referências bibliográficas também é alterado, e é usado o ``\&'' nas citações com mais de um autores (como em \citeonline{abntex2cite}). 
+
+\begin{figure}[!ht]
+  \centering
+  
+  \caption{Test}
+  \label{fig:t}
+\end{figure}
+
+\postextual
+
+\bibliography{techreport-ref}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
