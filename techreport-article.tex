@@ -101,6 +101,9 @@
 % to table of contents title (like "Contents")
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
+% \vspace*{\baselineskip}
+% \pdfbookmark[0]{\listfigurename}{lof}
+% \listoffigures*
 
 % ---
 % BEGIN DOCUMENT
@@ -137,12 +140,12 @@ Para ser claro: \trep{} é apenas uma personalização de \textsf{abntex2}; todo
 \section{Configurações}
 \label{sec:configuracoes}
 
-\textbf{Versão atual de techreport: v0.5}.
+\textbf{Versão atual de techreport: v0.6}.
 
 Nesta versão, existem algumas pequenas configurações manuais que precisam ser feitos pelo usuário. Um template mínimo para a classe poderia ser:
 
 \begin{verbatim}
-\documentclass{techreport}
+\documentclass[article]{techreport}
 
 % ---
 % FILL THIS INFORMATION
@@ -241,14 +244,29 @@ Por último, é importante observar os comandos \verb=\pretextual=, \verb=\textu
 
 \begin{itemize}
 \item O tamanho padrão é A4
-\item É usada uma configuração de ``artigo'', com as seções sendo as principais divisões do documento
 \item Tamanho de fonte de \SI{2}{pt}
 \item \trep{} configura margens superior e esquerda de \SI{3}{\centi\meter} e inferior e direita de \SI{2}{\centi\meter}, seguindo a norma ABNT NBR 14724:2011 \cite{NBR14724:2011}.
 \item O espaçamento entrelinhas é de \num{1,5}, segundo a mesma norma.
 \item Não há espaço entre parágrafos.
 \item A tabulação é de \SI{0,75}{\centi\meter}.
 \item O comando \verb=\textual= define um estilo de página com o número de página no canto superior direito, como pede a norma
+\item É usado um sumário customizado, com os diferentes níveis com diferentes níveis de espaçamento, diferentemente do que pede a norma mas infinitamente mais bonito
 \end{itemize}
+
+\subsection{Versão de artigo}
+\label{sec:article}
+
+Para produzir uma versão ``de artigo'' da classe, passe a opção \verb=article= para a classe. Isso tem alguns efeitos, principalmente:
+
+\begin{itemize}
+\item As seções são a principal divisão do documento
+\item O cabeçalho da página não exibe nenhum texto, apenas o número da página
+\item O sumário é ajustado para levar em conta que as seções são a principal unidade; inclusive, as referências bibliográficas são impressas no sumário como uma seção
+\end{itemize}
+
+Este template é produzido desta forma.
+
+Para documentos produzidos dessa forma, geralmente não há muito sentido em criar lista de figuras, tabelas etc, mas é possível. Apenas é preciso tomar cuidado com espaçamentos antes e depois dessa lista e com os bookmarks do PDF.
 
 \subsection{Citações}
 \label{sec:citacoes}

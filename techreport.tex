@@ -89,6 +89,10 @@
 \imprimircapa
 %\maketitle
 
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
 % this puts the table of contetns in the PDF bookmarks
 %
 % with just the \tableofcontents macro, the bookmark is still produced, but it directs the PDF
@@ -98,13 +102,14 @@
 % to table of contents title (like "Contents")
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
+\cleardoublepage
 
 % ---
 % BEGIN DOCUMENT
 \textual
 
 
-\section{Introdução}
+\chapter{Introdução}
 \label{sec:introducao}
 
 Este document descreve a classe \trep, uma classe baseada na classe \textsf{abntex2} \cite{bib:abntex2classe} , já com algumas configurações padronizadas. Na linguagem de hoje, esta é uma classe ``opinionada''.
@@ -131,10 +136,10 @@ Possíveis usos pensados para a classe são:
 
 Para ser claro: \trep{} é apenas uma personalização de \textsf{abntex2}; todo o trabalho pesado é feito por esta classe, ao qual os estudantes e profissionais brasileiros que precisam lidar com normas técnicas agradecem.
 
-\section{Configurações}
+\chapter{Configurações}
 \label{sec:configuracoes}
 
-\textbf{Versão atual de techreport: v0.5}.
+\textbf{Versão atual de techreport: v0.6}.
 
 Nesta versão, existem algumas pequenas configurações manuais que precisam ser feitos pelo usuário. Um template mínimo para a classe poderia ser:
 
@@ -208,6 +213,7 @@ Nesta versão, existem algumas pequenas configurações manuais que precisam ser
 
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
+\cleardoublepage
 
 \textual
 
@@ -230,10 +236,10 @@ Existem também comandos para configuração do PDF em si; o usuário é instru�
 
 Por último, é importante observar os comandos \verb=\pretextual=, \verb=\textual= e \verb=\postextual=, que indicam o início do documento e de elementos pré-textuais (como a capa) e pós-textuais, como referências.
 
-\section{Personalizações feitas}
+\chapter{Personalizações feitas}
 \label{sec:pers-feit}
 
-\subsection{Geometria}
+\section{Geometria}
 \label{sec:geometria}
 
 \begin{itemize}
@@ -247,12 +253,25 @@ Por último, é importante observar os comandos \verb=\pretextual=, \verb=\textu
 \item O comando \verb=\textual= define um estilo de página com o número de página no canto superior direito, como pede a norma
 \end{itemize}
 
-\subsection{Citações}
+\section{Versão de artigo}
+\label{sec:article}
+
+Para produzir uma versão ``de artigo'' da classe, passe a opção \verb=article= para a classe. Isso tem alguns efeitos, principalmente:
+
+\begin{itemize}
+\item As seções são a principal divisão do documento
+\item O cabeçalho da página não exibe nenhum texto, apenas o número da página
+\item O sumário é ajustado para levar em conta que as seções são a principal unidade; inclusive, as referências bibliográficas são impressas no sumário como uma seção
+\end{itemize}
+
+Veja o arquivo \verb=techreport-article.pdf=, que acompanha a classe, para ver como ficaria um documento produzido assim.
+
+\section{Citações}
 \label{sec:citacoes}
 
 É utilizado a configuração de citação do tipo (NOME, ANO) do \textsf{abntex2-cite}. Como configuração adicional, trabalhos com muitos autores não são abreviados como ``et al'' na lista de referências.
 
-\subsection{Fontes}
+\section{Fontes}
 \label{sec:fontes}
 
 A fonte principal do texto é a Palatino, com o pacote \textsf{pxfonts}
@@ -264,12 +283,14 @@ Como referência, uma equação em linha fica $a + \sqrt{b^2} = \exp \gamma$, e 
   \left( 1 + \frac{r}{R} \right) \sin \theta_i = 2 \beta \nabla \cdot \vec{V} 
 \end{equation}
 
+\subsection{Seções e subseções}
+
 \subsubsection{Fontes de seções}
 \label{sec:fontes-de-secoes}
 
 Esta subseção é apenas para ver como os títulos de seções são produzidos até o nível de subsubseção.
 
-\subsection{Pacotes carregados}
+\section{Pacotes carregados}
 \label{sec:pacotes-carregados}
 
 Além dos considerados essenciais pelo \textsf{abntex2}:
@@ -278,7 +299,7 @@ Além dos considerados essenciais pelo \textsf{abntex2}:
 \end{itemize}
 
 
-\subsection{English}
+\section{English}
 \label{sec:english}
 
 Para escrever o texto em inglês, passe as opções \texttt{[brazil,english]} à classe. Isso tem o efeito de mudar as legendas e referências a figuras, tabelas e equações, como pode ser visto na \autoref{fig:t} (compile este documento com estas opções para ver o resultado). Veja também uma referência à \autoref{eq:1} e à \autoref{sec:pacotes-carregados}.

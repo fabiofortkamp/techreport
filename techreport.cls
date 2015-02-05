@@ -11,7 +11,7 @@
 }
 \ProcessOptions\relax
 
-\LoadClass[a4paper,oneside,12pt,article]{abntex2}
+\LoadClass[a4paper,oneside,12pt,sumario=tradicional]{abntex2}
 
 % standard packages for inputing accented characters
 \RequirePackage[utf8]{inputenc}
@@ -78,10 +78,12 @@
 \renewcommand{\figureautorefname}{Figura}%
 \renewcommand{\tableautorefname}{Tabela}}
 
-% table of contents formatting
+
+
 \ifthenelse{%
 \equal{\ABNTEXisarticle}{true}}%
-{%
+{%then
+% table of contents formatting
 \cftsetindents{section}{0em}{1em}
 \cftsetindents{subsection}{1em}{2em}
 \cftsetindents{subsubsection}{2em}{3em}
@@ -97,6 +99,24 @@
     \fi
     \prebibhook
 }%
-}{}
+}{%else
+% table of contents formatting
+\cftsetindents{chapter}{0em}{1em}
+\cftsetindents{section}{1em}{2em}
+\cftsetindents{subsection}{2em}{3em}
+\cftsetindents{subsubsection}{3em}{4em}
+\renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
+\renewcommand{\cftsectionfont}{\ABNTEXsectionfont}
+\renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont}
+\renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}%
+\renewcommand{\bibsection}{%
+    \chapter*{\bibname}
+    \bibmark
+    \ifnobibintoc\else
+    \addcontentsline{toc}{chapter}{\bibname}
+    \fi
+    \prebibhook
 
+}
+}
 
