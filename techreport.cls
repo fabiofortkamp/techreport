@@ -64,7 +64,7 @@
 % Modify the \textual command, to print page number at the top right corner
 \renewcommand{\textual}{%
   \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
-    \pagestyle{simple}%
+    \pagestyle{simple}% no chapter names, to avoid priting "Summary" and "References"
   }{%else  
     \pagestyle{abntheadings}%
     \aliaspagestyle{chapter}{abntchapfirst}% customizing chapter pagestyle
@@ -82,23 +82,21 @@
 \ifthenelse{%
 \equal{\ABNTEXisarticle}{true}}%
 {%
-\cftsetindents{chapter}{0em}{\cftlastnumwidth}
-\cftsetindents{section}{0em}{\cftlastnumwidth}
-\cftsetindents{subsection}{1em}{\cftlastnumwidth}
-\cftsetindents{subsubsection}{2em}{\cftlastnumwidth}
+\cftsetindents{section}{0em}{1em}
+\cftsetindents{subsection}{1em}{2em}
+\cftsetindents{subsubsection}{2em}{3em}
 \renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
 \renewcommand{\cftsectionfont}{\ABNTEXsectionfont}
 \renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont}
 \renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}%
-}{}
-
 \renewcommand{\bibsection}{%
     \chapter*{\bibname}
     \bibmark
     \ifnobibintoc\else
-    \phantomsection
-    \addcontentsline{toc}{chapter}{\uppercase{\bibname}}
+    \addcontentsline{toc}{section}{\bibname}
     \fi
     \prebibhook
-}
+}%
+}{}
+
 

@@ -81,9 +81,6 @@
 % ADITIONAL COMMANDS
 \newcommand{\trep}{\textsf{techreport}}
 
-
-%\pagestyle{plain}
-
 \begin{document}
 
 \pretextual
@@ -92,6 +89,13 @@
 \imprimircapa
 %\maketitle
 
+% this puts the table of contetns in the PDF bookmarks
+%
+% with just the \tableofcontents macro, the bookmark is still produced, but it directs the PDF
+% to *below* the table of contents name
+%
+% the starred version then excludes the bookmark, and we manually add a new one, that will redirect the reader
+% to table of contents title (like "Contents")
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 
@@ -202,7 +206,12 @@ Nesta versão, existem algumas pequenas configurações manuais que precisam ser
 % PRINT THE COVER?
 \imprimircapa
 
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+
 \textual
+
+% CONTENTS GO HERE
 
 \postextual
 \bibliography{}
@@ -255,6 +264,11 @@ Como referência, uma equação em linha fica $a + \sqrt{b^2} = \exp \gamma$, e 
   \left( 1 + \frac{r}{R} \right) \sin \theta_i = 2 \beta \nabla \cdot \vec{V} 
 \end{equation}
 
+\subsubsection{Fontes de seções}
+\label{sec:fontes-de-secoes}
+
+Esta subseção é apenas para ver como os títulos de seções são produzidos até o nível de subsubseção.
+
 \subsection{Pacotes carregados}
 \label{sec:pacotes-carregados}
 
@@ -280,7 +294,6 @@ O título das referências bibliográficas também é alterado, e é usado o ``\
 
 \postextual
 
-%\addcontentsline{toc}{chapter}{Referências}
 \bibliography{techreport-ref}
 
 \end{document}
