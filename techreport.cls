@@ -78,8 +78,6 @@
 \renewcommand{\figureautorefname}{Figura}%
 \renewcommand{\tableautorefname}{Tabela}}
 
-
-
 \ifthenelse{%
 \equal{\ABNTEXisarticle}{true}}%
 {%then
@@ -87,10 +85,9 @@
 \cftsetindents{section}{0em}{1em}
 \cftsetindents{subsection}{1em}{2em}
 \cftsetindents{subsubsection}{2em}{3em}
-\renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
-\renewcommand{\cftsectionfont}{\ABNTEXsectionfont}
-\renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont}
-\renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}%
+\renewcommand{\cftsectionfont}{\normalfont}
+\renewcommand{\cftsubsectionfont}{\normalfont}
+\renewcommand{\cftsubsubsectionfont}{\normalfont}%
 \renewcommand{\bibsection}{%
     \chapter*{\bibname}
     \bibmark
@@ -105,10 +102,13 @@
 \cftsetindents{section}{1em}{2em}
 \cftsetindents{subsection}{2em}{3em}
 \cftsetindents{subsubsection}{3em}{4em}
-\renewcommand{\cftchapterfont}{\ABNTEXchapterfont}
-\renewcommand{\cftsectionfont}{\ABNTEXsectionfont}
-\renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont}
-\renewcommand{\cftsubsubsectionfont}{\ABNTEXsubsubsectionfont}%
+\renewcommand{\cftchapterfont}{\normalfont}
+\renewcommand{\cftchapterfont}{\normalfont}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\normalfont\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\cftsectionfont}{\normalfont}
+\renewcommand{\cftsubsectionfont}{\normalfont}
+\renewcommand{\cftsubsubsectionfont}{\normalfont}%
 \renewcommand{\bibsection}{%
     \chapter*{\bibname}
     \bibmark
