@@ -92,6 +92,9 @@
 \imprimircapa
 %\maketitle
 
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+
 % ---
 % BEGIN DOCUMENT
 \textual
@@ -276,6 +279,8 @@ O título das referências bibliográficas também é alterado, e é usado o ``\
 \end{figure}
 
 \postextual
+
+%\addcontentsline{toc}{chapter}{Referências}
 \bibliography{techreport-ref}
 
 \end{document}
