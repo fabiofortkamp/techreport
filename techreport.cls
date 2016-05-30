@@ -36,6 +36,22 @@
 \RequirePackage{color}
 \RequirePackage{graphicx}
 
+% commands to configure pdf printing
+\newcommand{\configurepdf}{
+\hypersetup{
+  pdftitle={\@title}, 
+  pdfauthor={\@author},
+  pdfsubject={\imprimirpreambulo},
+  pdfcreator={LaTeX with abnTeX2},
+  colorlinks=true,       		% false: boxed links; true: colored links
+  linkcolor=black,          	% color of internal links
+  citecolor=black,        		% color of links to bibliography
+  filecolor=black,      		% color of file links
+  urlcolor=black,
+  bookmarksdepth=4
+}}
+
+
 % abntex citation
 \ifthenelse{\boolean{isenglish}}{%
 \RequirePackage[alf,abnt-etal-list=0,abnt-and-type=&]{abntex2cite}}{%

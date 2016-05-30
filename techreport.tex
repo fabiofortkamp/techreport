@@ -60,22 +60,7 @@
 
 % ---
 % PDF SETUP
-
-\makeatletter
-\hypersetup{
-     	%pagebackref=true,
-	pdftitle={\@title}, 
-	pdfauthor={\@author},
-    	pdfsubject={},
-	pdfcreator={LaTeX with abnTeX2},
-	colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=black,          	% color of internal links
-    	citecolor=black,        		% color of links to bibliography
-    	filecolor=black,      		% color of file links
-	urlcolor=black,
-	bookmarksdepth=4
-}
-\makeatother
+\configurepdf
 
 % ---
 % ADITIONAL COMMANDS
@@ -139,7 +124,7 @@ Para ser claro: \trep{} é apenas uma personalização de \textsf{abntex2}; todo
 \chapter{Configurações}
 \label{sec:configuracoes}
 
-\textbf{Versão atual de techreport: v0.6}.
+\textbf{Versão atual de techreport: v0.7}.
 
 Nesta versão, existem algumas pequenas configurações manuais que precisam ser feitos pelo usuário. Um template mínimo para a classe poderia ser:
 
@@ -182,23 +167,7 @@ Nesta versão, existem algumas pequenas configurações manuais que precisam ser
 
 % ---
 % PDF SETUP
-
-\makeatletter
-\hypersetup{
-     	%pagebackref=true,
-	pdftitle={\@title}, 
-	pdfauthor={\@author},
-    	pdfsubject={},
-	pdfcreator={LaTeX with abnTeX2},
-	colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=black,          	% color of internal links
-    	citecolor=black,        		% color of links to bibliography
-    	filecolor=black,      		% color of file links
-	urlcolor=black,
-	bookmarksdepth=4
-}
-\makeatother
-
+\configurepdf
 
 % ---
 % BEGIN DOCUMENT
@@ -232,7 +201,7 @@ As principais configurações são referentes aos metadados do document, como o 
 
 Caso o usuário não deseja uma capa, pode comentar o commando \verb=\imprimircapa= e incluir o comando \verb=\maketitle=.
 
-Existem também comandos para configuração do PDF em si; o usuário é instruído a consultar o pacote \textsf{hyperref} para melhor compreensão.
+O comando \verb=\configurepdf= configura o arquivo PDF final para conter os metadados (título, autor etc) do documento.
 
 Por último, é importante observar os comandos \verb=\pretextual=, \verb=\textual= e \verb=\postextual=, que indicam o início do documento e de elementos pré-textuais (como a capa) e pós-textuais, como referências.
 
